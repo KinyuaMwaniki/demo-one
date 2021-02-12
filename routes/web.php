@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'LandingPageController@index')->name('landing');
+// Route::get('/', 'LandingPageController@index')->name('landing');
+Route::get('/', function() {
+    return view('welcome');
+});
 
 Auth::routes(['register' => false]);
 
@@ -14,4 +17,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('services', 'ServicesController');
     Route::get('users-edit-password', 'UsersController@editPassword')->name('users.edit-password');
     Route::patch('users-update-password/{user}', 'UsersController@updatePassword')->name('users.update-password');
+});
+
+Route::get('/test', function() {
+    return view('frontend.landing');
 });

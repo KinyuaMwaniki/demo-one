@@ -1,271 +1,739 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="img/favicon.png" type="image/png" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'laravel') }}</title>
     
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
-
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-
+    <!-- Bootstrap CSS -->
+    
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/icofont/icofont.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/venobox/venobox.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-</head>
+    {{-- <link rel="stylesheet" href="css/bootstrap.css" /> --}}
+    <link rel="stylesheet" href="vendors/linericon/style.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/themify-icons.css" />
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css" />
+    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css" />
+    <link rel="stylesheet" href="vendors/animate-css/animate.css" />
+    <link rel="stylesheet" href="vendors/jquery-ui/jquery-ui.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
 
-<body >
-
-    <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
-        <div class="container d-flex">
-            <div class="contact-info mr-auto">
-                <i class="icofont-envelope"></i> <a
-                    href="mailto:{{ $company_detail->email }}">{{ $company_detail->email }}</a>
-                <i class="icofont-phone"></i> {{ $company_detail->mobile }}
+  <body>
+    <!--================Header Menu Area =================-->
+    <header class="header_area">
+      <div class="top_menu">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7">
+              <div class="float-left">
+                <p>Phone: +01 256 25 235</p>
+                <p>email: info@eiser.com</p>
+              </div>
             </div>
-            <div class="social-links">
-                <a href="http://{{ $company_detail->twitter }}" target="_blank" class="twitter"><i
-                        class="icofont-twitter"></i></a>
-                <a href="http://{{ $company_detail->facebook }}" target="_blank" class="facebook"><i
-                        class="icofont-facebook"></i></a>
-                <a href="http://{{ $company_detail->instagram }}" target="_blank" class="instagram"><i
-                        class="icofont-instagram"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <header id="header" class="fixed-top">
-        <div class="container d-flex align-items-center">
-
-            @if(!is_null($company_detail->logo))
-                <a href="{!!  route('landing') !!}" class="logo mr-auto"><img src="/storage/logo/{{ $company_detail->logo }}" alt="Logo"></a>
-            @else
-                <h1 class="logo mr-auto"><a href="{{ route('landing') }}">{{ $company_detail->company_name }}<span></span></a></h1>
-            @endif
-
-            <nav class="nav-menu d-none d-lg-block">
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Products</a></li>
-                    <li><a href="#contact">Contact</a></li>
-
+            <div class="col-lg-5">
+              <div class="float-right">
+                <ul class="right_side">
+                  <li>
+                    <a href="cart.html">
+                      gift card
+                    </a>
+                  </li>
+                  <li>
+                    <a href="tracking.html">
+                      track order
+                    </a>
+                  </li>
+                  <li>
+                    <a href="contact.html">
+                      Contact Us
+                    </a>
+                  </li>
                 </ul>
-            </nav><!-- .nav-menu -->
-
+              </div>
+            </div>
+          </div>
         </div>
-    </header><!-- End Header -->
+      </div>
+      <div class="main_menu">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light w-100">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a class="navbar-brand logo_h" href="index.html">
+              <img src="img/logo.png" alt="" />
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div
+              class="collapse navbar-collapse offset w-100"
+              id="navbarSupportedContent"
+            >
+              <div class="row w-100 mr-0">
+                <div class="col-lg-7 pr-0">
+                  <ul class="nav navbar-nav center_nav pull-right">
+                    <li class="nav-item">
+                      <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item active submenu dropdown">
+                      <a
+                        href="#"
+                        class="nav-link dropdown-toggle"
+                        data-toggle="dropdown"
+                        role="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        >Shop</a
+                      >
+                      <ul class="dropdown-menu">
+                        <li class="nav-item">
+                          <a class="nav-link" href="category.html"
+                            >Shop Category</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="single-product.html"
+                            >Product Details</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="checkout.html"
+                            >Product Checkout</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="cart.html">Shopping Cart</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="nav-item submenu dropdown">
+                      <a
+                        href="#"
+                        class="nav-link dropdown-toggle"
+                        data-toggle="dropdown"
+                        role="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        >Blog</a
+                      >
+                      <ul class="dropdown-menu">
+                        <li class="nav-item">
+                          <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="single-blog.html"
+                            >Blog Details</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="nav-item submenu dropdown">
+                      <a
+                        href="#"
+                        class="nav-link dropdown-toggle"
+                        data-toggle="dropdown"
+                        role="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        >Pages</a
+                      >
+                      <ul class="dropdown-menu">
+                        <li class="nav-item">
+                          <a class="nav-link" href="tracking.html">Tracking</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="elements.html">Elements</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                  </ul>
+                </div>
 
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center">
-        <div class="container" data-aos="zoom-out" data-aos-delay="100">
-            <h1>Welcome to <span>{{ $company_detail->company_name }}</span>
-            </h1>
-            <h2>{{ $company_detail->slogan }}</h2>
-            <div class="d-flex">
-                <a href="#about" class="btn-get-started scrollto">About Us</a>
+                <div class="col-lg-5 pr-0">
+                  <ul class="nav navbar-nav navbar-right right_nav pull-right">
+                    <li class="nav-item">
+                      <a href="#" class="icons">
+                        <i class="ti-search" aria-hidden="true"></i>
+                      </a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a href="#" class="icons">
+                        <i class="ti-shopping-cart"></i>
+                      </a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a href="#" class="icons">
+                        <i class="ti-user" aria-hidden="true"></i>
+                      </a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a href="#" class="icons">
+                        <i class="ti-heart" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
+          </nav>
         </div>
-    </section><!-- End Hero -->
+      </div>
+    </header>
+    <!--================Header Menu Area =================-->
 
-    <main id="main">
-        <section id="portfolio" class="portfolio">
-            <div class="container" data-aos="fade-up">
-
-                <div class="section-title">
-                    <h2>Our Products</h2>
-                    <p>Rictech supplies will delivers quality IT products at a price you will love!!</p>
-                </div>
-
-                <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-                    @foreach ($portfolios as $portfolio)
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                            <img src="/storage/portfolios/{{ $portfolio->image }}" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>{{ $portfolio->header }}</h4>
-                                <p>{{ $portfolio->subheader }}</p>
-                                <a href="/storage/portfolios/{{ $portfolio->image }}" data-gall="portfolioGallery"
-                                    class="venobox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+    <!--================Home Banner Area =================-->
+    <section class="banner_area">
+      <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+          <div class="banner_content d-md-flex justify-content-between align-items-center">
+            <div class="mb-3 mb-md-0">
+              <h2>Shop Category</h2>
+              <p>Very us move be blessed multiply night</p>
             </div>
-        </section><!-- End Portfolio Section -->
-
-        <!-- ======= Services Section ======= -->
-        <section id="services" class="services">
-            <div class="container" data-aos="fade-up">
-                <div class="section-title">
-                    <h2>Services</h2>
-                    <p>We offer a full spectrum of IT services to help your business succeed. Speak to us to get a
-                        proposal for the services listed below</p>
-                </div>
-
-                <div class="row">
-                    @foreach ($services as $service)
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in"
-                            data-aos-delay="100">
-                            <div class="icon-box">
-                                <div class="icon"><i class="bx bx-slideshow"></i></div>
-                                <h4><a href="">{{ $service->header }}</a></h4>
-                                <p>{{ $service->description }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+            <div class="page_link">
+              <a href="index.html">Home</a>
+              <a href="category.html">Shop</a>
+              <a href="category.html">Women Fashion</a>
             </div>
-        </section><!-- End Services Section -->
-
-        <!-- ======= About Section ======= -->
-        <section id="about" class="about section-bg">
-            <div class="container" data-aos="fade-up">
-
-                <div class="section-title">
-                    <h2>About Us</h2>
-                    <p>Find out more about {{ $company_detail->company_name }}</p>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-6" data-aos="zoom-out" data-aos-delay="100">
-                        {{-- <img src="assets/img/about.jpg" class="img-fluid" alt=""> --}}
-
-                        <img src="/storage/about/{{ $company_detail->about_us_image }}" class="img-fluid" alt="About Us">
-                    </div>
-                    <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <h3>{{ $company_detail->about_us_heading }}</h3>
-                          
-                        {!! $company_detail->about_us_description !!}
-                    </div>
-                </div>
-
-            </div>
-        </section><!-- End About Section -->
-
-
-
-
-        <!-- ======= Contact Section ======= -->
-        <section id="contact" class="contact">
-            <div class="container" data-aos="fade-up">
-
-                <div class="section-title">
-                    <h2>Contact</h2>
-                    <p>Contact us using any of the below means</p>
-                </div>
-
-                <div class="row" data-aos="fade-up" data-aos-delay="100">
-                    <div class="col-lg-6">
-                        <div class="info-box mb-4">
-                            <i class="bx bx-map"></i>
-                            <h3>Our Address</h3>
-                            <p>{{ $company_detail->address }}</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="info-box  mb-4">
-                            <i class="bx bx-envelope"></i>
-                            <h3>Email Us</h3>
-                            <p>{{ $company_detail->email }}</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="info-box  mb-4">
-                            <i class="bx bx-phone-call"></i>
-                            <h3>Call Us</h3>
-                            <p>{{ $company_detail->mobile }}</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row" data-aos="fade-up" data-aos-delay="100">
-                    <contact-component></contact-component>
-                </div>
-
-            </div>
-        </section><!-- End Contact Section -->
-
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-    <footer id="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-4 col-md-6 footer-contact">
-                        <h3>{{ $company_detail->company_name }}<span>.</span></h3>
-                        <p>
-                            <strong>Phone:</strong> {{ $company_detail->mobile }}<br>
-                            <strong>Email:</strong> {{ $company_detail->email }}<br>
-                        </p>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 footer-links">
-                        <h4>Useful Links</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#services">Services</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">Products</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="{!! route('login') !!}" target="_blank">Staff</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 footer-links">
-                        <h4>Our Social Networks</h4>
-                        <p>Follow us</p>
-                        <div class="social-links mt-3">
-                            <a href="http://{{ $company_detail->twitter }}" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
-                            <a href="http://{{ $company_detail->facebook }}" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
-                            <a href="http://{{ $company_detail->instagram }}" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+    </section>
+    <!--================End Home Banner Area =================-->
 
-        <div class="container py-4">
-            <div class="copyright">
-                &copy; Copyright <strong><span>{{ $company_detail->company_name }}</span></strong>. All Rights Reserved
+    <!--================Category Product Area =================-->
+    <section class="cat_product_area section_gap">
+      <div class="container">
+        <div class="row flex-row-reverse">
+          <div class="col-lg-9">
+            <div class="product_top_bar">
+              <div class="left_dorp">
+                <select class="sorting">
+                  <option value="1">Default sorting</option>
+                  <option value="2">Default sorting 01</option>
+                  <option value="4">Default sorting 02</option>
+                </select>
+                <select class="show">
+                  <option value="1">Show 12</option>
+                  <option value="2">Show 14</option>
+                  <option value="4">Show 16</option>
+                </select>
+              </div>
             </div>
-            <div class="credits">
-                Website built by <a href="https://sifa.co.ke" class="mr-3" target="_blank">Sifa</a>
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            
+            <div class="latest_product_inner">
+              <div class="row">
+                <div class="col-lg-4 col-md-6">
+                  <div class="single-product">
+                    <div class="product-img">
+                      <img
+                        class="card-img"
+                        src="img/product/inspired-product/i1.jpg"
+                        alt=""
+                      />
+                      <div class="p_icon">
+                        <a href="#">
+                          <i class="ti-eye"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-heart"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-shopping-cart"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="product-btm">
+                      <a href="#" class="d-block">
+                        <h4>Latest men’s sneaker</h4>
+                      </a>
+                      <div class="mt-3">
+                        <span class="mr-4">$25.00</span>
+                        <del>$35.00</del>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <div class="single-product">
+                    <div class="product-img">
+                      <img
+                        class="card-img"
+                        src="img/product/inspired-product/i2.jpg"
+                        alt=""
+                      />
+                      <div class="p_icon">
+                        <a href="#">
+                          <i class="ti-eye"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-heart"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-shopping-cart"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="product-btm">
+                      <a href="#" class="d-block">
+                        <h4>Latest men’s sneaker</h4>
+                      </a>
+                      <div class="mt-3">
+                        <span class="mr-4">$25.00</span>
+                        <del>$35.00</del>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <div class="single-product">
+                    <div class="product-img">
+                      <img
+                        class="card-img"
+                        src="img/product/inspired-product/i3.jpg"
+                        alt=""
+                      />
+                      <div class="p_icon">
+                        <a href="#">
+                          <i class="ti-eye"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-heart"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-shopping-cart"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="product-btm">
+                      <a href="#" class="d-block">
+                        <h4>Latest men’s sneaker</h4>
+                      </a>
+                      <div class="mt-3">
+                        <span class="mr-4">$25.00</span>
+                        <del>$35.00</del>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <div class="single-product">
+                    <div class="product-img">
+                      <img
+                        class="card-img"
+                        src="img/product/inspired-product/i4.jpg"
+                        alt=""
+                      />
+                      <div class="p_icon">
+                        <a href="#">
+                          <i class="ti-eye"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-heart"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-shopping-cart"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="product-btm">
+                      <a href="#" class="d-block">
+                        <h4>Latest men’s sneaker</h4>
+                      </a>
+                      <div class="mt-3">
+                        <span class="mr-4">$25.00</span>
+                        <del>$35.00</del>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <div class="single-product">
+                    <div class="product-img">
+                      <img
+                        class="card-img"
+                        src="img/product/inspired-product/i5.jpg"
+                        alt=""
+                      />
+                      <div class="p_icon">
+                        <a href="#">
+                          <i class="ti-eye"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-heart"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-shopping-cart"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="product-btm">
+                      <a href="#" class="d-block">
+                        <h4>Latest men’s sneaker</h4>
+                      </a>
+                      <div class="mt-3">
+                        <span class="mr-4">$25.00</span>
+                        <del>$35.00</del>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <div class="single-product">
+                    <div class="product-img">
+                      <img
+                        class="card-img"
+                        src="img/product/inspired-product/i6.jpg"
+                        alt=""
+                      />
+                      <div class="p_icon">
+                        <a href="#">
+                          <i class="ti-eye"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-heart"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-shopping-cart"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="product-btm">
+                      <a href="#" class="d-block">
+                        <h4>Latest men’s sneaker</h4>
+                      </a>
+                      <div class="mt-3">
+                        <span class="mr-4">$25.00</span>
+                        <del>$35.00</del>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <div class="single-product">
+                    <div class="product-img">
+                      <img
+                        class="card-img"
+                        src="img/product/inspired-product/i7.jpg"
+                        alt=""
+                      />
+                      <div class="p_icon">
+                        <a href="#">
+                          <i class="ti-eye"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-heart"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-shopping-cart"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="product-btm">
+                      <a href="#" class="d-block">
+                        <h4>Latest men’s sneaker</h4>
+                      </a>
+                      <div class="mt-3">
+                        <span class="mr-4">$25.00</span>
+                        <del>$35.00</del>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <div class="single-product">
+                    <div class="product-img">
+                      <img
+                        class="card-img"
+                        src="img/product/inspired-product/i8.jpg"
+                        alt=""
+                      />
+                      <div class="p_icon">
+                        <a href="#">
+                          <i class="ti-eye"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-heart"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-shopping-cart"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="product-btm">
+                      <a href="#" class="d-block">
+                        <h4>Latest men’s sneaker</h4>
+                      </a>
+                      <div class="mt-3">
+                        <span class="mr-4">$25.00</span>
+                        <del>$35.00</del>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <div class="single-product">
+                    <div class="product-img">
+                      <img
+                        class="card-img"
+                        src="img/product/inspired-product/i2.jpg"
+                        alt=""
+                      />
+                      <div class="p_icon">
+                        <a href="#">
+                          <i class="ti-eye"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-heart"></i>
+                        </a>
+                        <a href="#">
+                          <i class="ti-shopping-cart"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="product-btm">
+                      <a href="#" class="d-block">
+                        <h4>Latest men’s sneaker</h4>
+                      </a>
+                      <div class="mt-3">
+                        <span class="mr-4">$25.00</span>
+                        <del>$35.00</del>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="left_sidebar_area">
+              <aside class="left_widgets p_filter_widgets">
+                <div class="l_w_title">
+                  <h3>Browse Categories</h3>
+                </div>
+                <div class="widgets_inner">
+                  <ul class="list">
+                    <li>
+                      <a href="#">Frozen Fish</a>
+                    </li>
+                    <li>
+                      <a href="#">Dried Fish</a>
+                    </li>
+                    <li>
+                      <a href="#">Fresh Fish</a>
+                    </li>
+                    <li>
+                      <a href="#">Meat Alternatives</a>
+                    </li>
+                    <li>
+                      <a href="#">Fresh Fish</a>
+                    </li>
+                    <li>
+                      <a href="#">Meat Alternatives</a>
+                    </li>
+                    <li>
+                      <a href="#">Meat</a>
+                    </li>
+                  </ul>
+                </div>
+              </aside>
+
+              <aside class="left_widgets p_filter_widgets">
+                <div class="l_w_title">
+                  <h3>Product Brand</h3>
+                </div>
+                <div class="widgets_inner">
+                  <ul class="list">
+                    <li>
+                      <a href="#">Apple</a>
+                    </li>
+                    <li>
+                      <a href="#">Asus</a>
+                    </li>
+                    <li class="active">
+                      <a href="#">Gionee</a>
+                    </li>
+                    <li>
+                      <a href="#">Micromax</a>
+                    </li>
+                    <li>
+                      <a href="#">Samsung</a>
+                    </li>
+                  </ul>
+                </div>
+              </aside>
+
+              <aside class="left_widgets p_filter_widgets">
+                <div class="l_w_title">
+                  <h3>Color Filter</h3>
+                </div>
+                <div class="widgets_inner">
+                  <ul class="list">
+                    <li>
+                      <a href="#">Black</a>
+                    </li>
+                    <li>
+                      <a href="#">Black Leather</a>
+                    </li>
+                    <li class="active">
+                      <a href="#">Black with red</a>
+                    </li>
+                    <li>
+                      <a href="#">Gold</a>
+                    </li>
+                    <li>
+                      <a href="#">Spacegrey</a>
+                    </li>
+                  </ul>
+                </div>
+              </aside>
+
+              <aside class="left_widgets p_filter_widgets">
+                <div class="l_w_title">
+                  <h3>Price Filter</h3>
+                </div>
+                <div class="widgets_inner">
+                  <div class="range_item">
+                    <div id="slider-range"></div>
+                    <div class="">
+                      <label for="amount">Price : </label>
+                      <input type="text" id="amount" readonly />
+                    </div>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
         </div>
-    </footer><!-- End Footer -->
+      </div>
+    </section>
+    <!--================End Category Product Area =================-->
 
-    <div id="preloader"></div>
-    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+    <!--================ start footer Area  =================-->
+    <footer class="footer-area section_gap">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h4>Top Products</h4>
+            <ul>
+              <li><a href="#">Managed Website</a></li>
+              <li><a href="#">Manage Reputation</a></li>
+              <li><a href="#">Power Tools</a></li>
+              <li><a href="#">Marketing Service</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Jobs</a></li>
+              <li><a href="#">Brand Assets</a></li>
+              <li><a href="#">Investor Relations</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h4>Features</h4>
+            <ul>
+              <li><a href="#">Jobs</a></li>
+              <li><a href="#">Brand Assets</a></li>
+              <li><a href="#">Investor Relations</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#">Guides</a></li>
+              <li><a href="#">Research</a></li>
+              <li><a href="#">Experts</a></li>
+              <li><a href="#">Agencies</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6 single-footer-widget">
+            <h4>Newsletter</h4>
+            <p>You can trust us. we only send promo offers,</p>
+            <div class="form-wrap" id="mc_embed_signup">
+              <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                method="get" class="form-inline">
+                <input class="form-control" name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''"
+                  onblur="this.placeholder = 'Your Email Address '" required="" type="email">
+                <button class="click-btn btn btn-default">Subscribe</button>
+                <div style="position: absolute; left: -5000px;">
+                  <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                </div>
+  
+                <div class="info"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom row align-items-center">
+          <p class="footer-text m-0 col-lg-8 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          <div class="col-lg-4 col-md-12 footer-social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-behance"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--================ End footer Area  =================-->
 
-
-    <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
-    <script src="{{ asset('assets/vendor/waypoints/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/counterup/counterup.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/venobox/venobox.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
-    <script src="{{ asset('assets/js/main.js') }}"></script>
-</body>
-
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/stellar.js"></script>
+    <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="vendors/isotope/isotope-min.js"></script>
+    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendors/counter-up/jquery.counterup.js"></script>
+    <script src="js/theme.js"></script>
+  </body>
 </html>
+
