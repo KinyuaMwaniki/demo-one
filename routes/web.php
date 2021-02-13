@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'LandingPageController@index')->name('landing');
-Route::get('/products', 'ProductsController@index')->name('products.index');
+Route::get('/products-list', 'ProductsController@index')->name('products.index');
 
 Auth::routes(['register' => false]);
 Route::get('/home', 'HomeController@index')->name('home');

@@ -8,6 +8,7 @@
     <title>{{ config('app.name', 'laravel') }}</title>
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/sifa.css') }}" rel="stylesheet">
     <link href="{{ asset('vendors/linericon/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/themify-icons.css') }}" rel="stylesheet">
