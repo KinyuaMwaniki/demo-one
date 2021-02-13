@@ -29,6 +29,7 @@ class EditCompanyDetailsRequest extends FormRequest
             'mobile' => 'bail|required',
             'logo' => 'bail|image',
             'about_us_image' => 'bail|image|max:700',
+            'landing_page_background' => 'bail|image|max:700',
         ];
     }
 }

@@ -18,6 +18,7 @@ class CreatePortfoliosTable extends Migration
             $table->string('header');
             $table->string('subheader');
             $table->string('image');
+            $table->double('price');
             $table->timestamps();
         });
     }

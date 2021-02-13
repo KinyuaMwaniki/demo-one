@@ -13,24 +13,29 @@ class CompanyDetailSeeder extends Seeder
     public function run()
     {
         $company_detail = CompanyDetail::create([
-            'company_name' => 'Rictech Supplies',
-            'email' => 'info@rictec.com',
-            'mobile' => '071111111',
-            'address' => 'Kimathi Avenue, Behind Stanley Hotel',
-            'facebook' => 'www.facebook.com/page',
-            'twitter' => 'www.twitter.com/page',
-            'instagram' => 'www.instagram/page',
-            'slogan' => 'We supply you with the IT supplies you need to keep your business going',
+            'company_name' => 'Medsales Unlimited',
+            'email' => 'info@medsales.org',
+            'mobile' => '0721212121',
+            'address' => 'Westlands Road, House 411',
+            'facebook' => 'www.facebook.com',
+            'twitter' => 'www.twitter.com',
+            'instagram' => 'www.instagram',
+            'slogan' => 'Considered the best, by the best',
+            'sub_slogan' => 'For all medicine supplies',
             'about_us_image' => 'default.jpg',
-            'about_us_heading' => 'We are an industry leader in the supply of Office and IT supplies',
+            'about_us_heading' => 'Voted best supplier of gloves, by ourselves',
             'about_us_description' => '
-                                <p>
-                                    We are committed to making quality IT supplies available to all. We supply all the major brands of 
-                                    computers, networking equipment, and office supplies. Our Supplies come with warranty to give our clients peace of mind.
+                                 <p>
+                                    Since 2000, we have been at the forefront of the medical supplies industry in Kenya, and have time and again voted as one of the best
+                                    and most reliable suppliers in the region.
                                 </p>
                                 <p>
-                                    In Addition, we perform contracted services such as network maintenance, server maintenance, installation
-                                    of windows and antivirus, among others.
+                                    We are committed to making quality medical supplies available to all. We supply both brand and generic medicine and medical supplies, 
+                                    to keep your hospital going.
+                                </p>
+                                <p>
+                                    In Addition, we perform contracted services such as equipment maintenance, waste management, staff training and consulting on medical
+                                    supplies procurement.
                                 </p>
                                 ',
             ]);

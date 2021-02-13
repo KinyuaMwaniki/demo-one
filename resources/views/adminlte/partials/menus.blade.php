@@ -10,7 +10,8 @@
                   </a>
               </li>
 
-              <li class="{{ Request::is('company') || Request::is('portfolios*') || Request::is('services*') ? 'nav-item has-treeview menu-open' : 'nav-item has-treeview' }} ">
+              <li
+                  class="{{ Request::is('company') || Request::is('portfolios*') || Request::is('services*') ? 'nav-item has-treeview menu-open' : 'nav-item has-treeview' }} ">
                   <a href="#"
                       class="{{ Request::is('company') || Request::is('portfolios*') || Request::is('services*') ? 'nav-link active' : 'nav-link' }} ">
                       <i class="fas fa-cogs"></i>
@@ -29,6 +30,14 @@
                       </li>
 
                       <li class="nav-item">
+                          <a href="{!!  route('promises.index') !!}"
+                              class="{{ Request::is('promises') ? 'nav-link active' : 'nav-link' }}">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>Business Promises</p>
+                          </a>
+                      </li>
+
+                      <li class="nav-item">
                           <a href="{!!  route('portfolios.index') !!}"
                               class="{{ Request::is('portfolios*') ? 'nav-link active' : 'nav-link' }}">
                               <i class="far fa-circle nav-icon"></i>
@@ -40,6 +49,13 @@
                               class="{{ Request::is('services*') ? 'nav-link active' : 'nav-link' }}">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Services</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="{!!  route('blogs.index') !!}"
+                              class="{{ Request::is('blogs*') ? 'nav-link active' : 'nav-link' }}">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>Blog Posts</p>
                           </a>
                       </li>
                   </ul>

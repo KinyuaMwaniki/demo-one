@@ -32,6 +32,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Description</th>
+                                    <th>Price</th>
                                     <th>Image</th>
                                     <th></th>
                                 </tr>
@@ -42,6 +43,9 @@
                                         <td>{{ $portfolio->header }}</td>
                                         <td>
                                             {{ $portfolio->subheader }}
+                                        </td>
+                                        <td>
+                                            KES {{ $portfolio->price }}
                                         </td>
                                         <td>
                                             <img src="/storage/portfolios/{{ $portfolio->image }}" alt="Logo" style="height: 80px; width: 80px">
