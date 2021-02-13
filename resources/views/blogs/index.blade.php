@@ -3,12 +3,12 @@
 @section('header')
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Company Products</h1>
+            <h1 class="m-0 text-dark">Blogs</h1>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Our Products</li>
+                <li class="breadcrumb-item active">Blogs</li>
             </ol>
         </div>
     </div>
@@ -22,7 +22,7 @@
                     <div class="card-header">
 
                         <div class="text-right">
-                            <a href="{!!  route('portfolios.create') !!}" class="btn btn-info" type="button">New</a>
+                            <a href="{!!  route('blogs.create') !!}" class="btn btn-info" type="button">New</a>
                         </div>
 
                     </div>
@@ -30,30 +30,29 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Price</th>
+                                    <th>Title</th>
                                     <th>Image</th>
+                                    <th>Body</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($portfolios as $portfolio)
+                                @foreach ($blogs as $blog)
                                     <tr>
-                                        <td>{{ $portfolio->header }}</td>
+                                        <td>{{ $blog->title }}</td>
                                         <td>
-                                            {{ $portfolio->subheader }}
+                                            <img src="/storage/blog/{{ $blog->image }}" alt="Logo"
+                                                style="height: 100px; width: 100px">
                                         </td>
                                         <td>
-                                            KES {{ $portfolio->price }}
+                                            {!! $blog->body !!}
                                         </td>
                                         <td>
-                                            <img src="/storage/portfolios/{{ $portfolio->image }}" alt="Logo" style="height: 80px; width: 80px">
-                                        </td>
-                                        <td>
-                                            {!! Form::open(['route' => ['portfolios.destroy', $portfolio->id], 'method' => 'delete']) !!}
+                                            {!! Form::open(['route' => ['blogs.destroy', $blog->id], 'method' => 'delete'])
+                                            !!}
                                             <div class='btn-group'>
-                                                <a href="{{ route('portfolios.edit', $portfolio->id) }}" class='btn btn-info btn-xs mr-2'>
+                                                <a href="{{ route('blogs.edit', $blog->id) }}"
+                                                    class='btn btn-info btn-xs mr-2'>
                                                     <i class="fa fa-pen"></i>
                                                 </a>
                                                 {!! Form::button('<i class="fa fa-trash" aria-hidden="true"></i>', [
@@ -62,7 +61,7 @@
                                                 'onclick' => "return confirm('Are you sure?')",
                                                 ]) !!}
                                             </div>
-                                            {!! Form::close() !!} 
+                                            {!! Form::close() !!}
                                         </td>
                                     </tr>
                                 @endforeach

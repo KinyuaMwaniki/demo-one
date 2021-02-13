@@ -51,6 +51,13 @@
                               <p>Services</p>
                           </a>
                       </li>
+                      <li class="nav-item">
+                          <a href="{!!  route('blogs.index') !!}"
+                              class="{{ Request::is('blogs*') ? 'nav-link active' : 'nav-link' }}">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>Blog Posts</p>
+                          </a>
+                      </li>
                   </ul>
               </li>
 

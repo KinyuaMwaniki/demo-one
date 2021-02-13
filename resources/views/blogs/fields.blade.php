@@ -1,8 +1,8 @@
 <div class="card-body">
     <div class="form-group row">
         {!! Form::label(
-        'header',
-        'Product/Service Name<span class="required-marker">*</span>',
+        'title',
+        'Blog Title',
         [
         'class' => 'col-sm-2
         col-form-label',
@@ -10,15 +10,15 @@
         false,
         ) !!}
         <div class="col-sm-10">
-            {!! Form::text('header', null, ['class' => 'form-control ' . ($errors->has('header') ? 'is-invalid' : '')])
+            {!! Form::text('title', null, ['class' => 'form-control ' . ($errors->has('title') ? 'is-invalid' : '')])
             !!}
         </div>
     </div>
-
+    
     <div class="form-group row">
         {!! Form::label(
-        'subheader',
-        'Description<span class="required-marker">*</span>',
+        'body',
+        'Body',
         [
         'class' => 'col-sm-2
         col-form-label',
@@ -26,33 +26,19 @@
         false,
         ) !!}
         <div class="col-sm-10">
-            {!! Form::text('subheader', null, ['class' => 'form-control ' . ($errors->has('subheader') ? 'is-invalid' :
-            '')]) !!}
+            {!! Form::textarea('body', null, [
+            'class' => 'form-control summernote',
+            ]) !!}
+            @error('body')
+                <div class="error text-danger">{{ $message }}</div>
+            @enderror
         </div>
     </div>
-
-    <div class="form-group row">
-        {!! Form::label(
-        'price',
-        'Product Price',
-        [
-        'class' => 'col-sm-2
-        col-form-label',
-        ],
-        false,
-        ) !!}
-        <div class="col-sm-10">
-            {!! Form::text('price', null, ['class' => 'form-control ' . ($errors->has('price') ? 'is-invalid' : '')])
-            !!}
-        </div>
-    </div>
-
-
 
     <div class="form-group row">
         {!! Form::label(
         'image',
-        'Display Image<span class="required-marker">*</span>',
+        'Blog Image<span class="required-marker">*</span>',
         [
         'class' => 'col-sm-2
         col-form-label',

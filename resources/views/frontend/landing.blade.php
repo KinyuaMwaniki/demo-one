@@ -174,11 +174,12 @@
             </div>
 
             <div class="row">
+                @foreach($portfolios as $portfolio)
                 <div class="col-lg-4 col-md-6">
                     <div class="single-product">
                         <div class="product-img">
                             <img style="height: 260px" class="img-fluid w-100"
-                                src="img/product/feature-product/latex-gloves-1-600x600.jpg" alt="" />
+                                src="/storage/portfolios/{{ $portfolio->image }}" alt="" />
                             <div class="p_icon">
                                 <a href="#">
                                     <i class="ti-eye"></i>
@@ -193,64 +194,15 @@
                         </div>
                         <div class="product-btm">
                             <a href="#" class="d-block">
-                                <h4>Latest men’s sneaker</h4>
+                                <h4>{{ $portfolio->header }}</h4>
                             </a>
                             <div class="mt-3">
-                                <span class="mr-4">$25.00</span>
-                                <del>$35.00</del>
+                                <span class="mr-4">KES {{ $portfolio->price }}</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-product">
-                        <div class="product-img">
-                            <img class="img-fluid w-100" src="img/product/feature-product/syringe-1574486_1920.jpg"
-                                alt="" />
-                            <div class="p_icon">
-                                <a href="#">
-                                    <i class="ti-eye"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="ti-heart"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="ti-shopping-cart"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-btm">
-                            <a href="#" class="d-block">
-                                <h4>Syringes</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-product">
-                        <div class="product-img">
-                            <img class="img-fluid w-100" src="img/product/feature-product/bp_machines.webp" alt="" />
-                            <div class="p_icon">
-                                <a href="#">
-                                    <i class="ti-eye"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="ti-heart"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="ti-shopping-cart"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-btm">
-                            <a href="#" class="d-block">
-                                <h4>Bp Machines</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
