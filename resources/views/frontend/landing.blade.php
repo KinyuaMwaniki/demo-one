@@ -12,7 +12,7 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('vendors/linericon/style.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/themify-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('vendors/owl-carousel/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendors/lightbox/simpleLightbox.css') }}" rel="stylesheet">
@@ -33,8 +33,8 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="float-left">
-                            <p>Phone: 07123456789</p>
-                            <p>email: info@medsales.example</p>
+                            <p>{{ $company_detail->company_name }}</p>
+                            <p>{{ $company_detail->email }}</p>
                         </div>
                     </div>
                 </div>
@@ -43,9 +43,8 @@
         <div class="main_menu">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light w-100">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="index.html">
-                        {{-- <img src="img/logo.png" style="height: 40px" class="img-fluid" alt="" /> --}}
+                    <a class="navbar-brand logo_h" href="{!! route('landing') !!}">
+                        <img src="/storage/logo/{{ $company_detail->logo }}" class="img-fluid" style="height: 50px" alt="" />
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -123,9 +122,18 @@
             <div class="container">
                 <div class="banner_content row">
                     <div class="col-lg-12">
-                        <p class="sub text-uppercase">MedSales Medical Supplies</p>
-                        <h3><span>Quality</span> You <br />Can <span>Afford</span></h3>
-                        <h4>For All types of medical supplies.</h4>
+                        <p class="sub text-uppercase">{{ $company_detail->company_name }}</p>
+                        <h3>
+                            @php $count = 0 @endphp
+                            @foreach( explode(' ', $company_detail->slogan) as $word)
+                                {!! strlen($word) > 4 ? "<span>".$word."</span>" : $word !!}
+                                @php $count++ @endphp
+                                @if($count % 3 === 0)
+                                    <br />
+                                @endif
+                            @endforeach
+                        </h3>
+                        <h4>{{ $company_detail->sub_slogan }}</h4>
                     </div>
                 </div>
             </div>
@@ -186,8 +194,8 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-product">
                         <div class="product-img">
-                            <img style="height: 260px" class="img-fluid w-100" src="img/product/feature-product/latex-gloves-1-600x600.jpg"
-                                alt="" />
+                            <img style="height: 260px" class="img-fluid w-100"
+                                src="img/product/feature-product/latex-gloves-1-600x600.jpg" alt="" />
                             <div class="p_icon">
                                 <a href="#">
                                     <i class="ti-eye"></i>
@@ -290,7 +298,8 @@
                             </a>
                             <div class="text-wrap">
                                 <p>
-                                    When a patient is coping with a severe injury or illness, things can take a turn for the worse very quickly. 
+                                    When a patient is coping with a severe injury or illness, things can take a turn for
+                                    the worse very quickly.
                                 </p>
                             </div>
                             <a href="#" class="blog_btn">Learn More <span class="ml-2 ti-arrow-right"></span></a>
@@ -309,7 +318,8 @@
                             </a>
                             <div class="text-wrap">
                                 <p>
-                                    The topic of medical ventilators is one that has gained more attention and curiosity over the past year due to COVID-19. .
+                                    The topic of medical ventilators is one that has gained more attention and curiosity
+                                    over the past year due to COVID-19. .
                                 </p>
                             </div>
                             <a href="#" class="blog_btn">Learn More <span class="ml-2 ti-arrow-right"></span></a>
@@ -320,7 +330,8 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog">
                         <div class="thumb">
-                            <img style="height: 225px" class="img-fluid" src="img/what-are-the-types-of-medical-ventilators-and-how-do-they-work.jpg" alt="">
+                            <img style="height: 225px" class="img-fluid"
+                                src="img/what-are-the-types-of-medical-ventilators-and-how-do-they-work.jpg" alt="">
                         </div>
                         <div class="short_details">
                             <a class="d-block" href="single-blog.html">
@@ -328,7 +339,8 @@
                             </a>
                             <div class="text-wrap">
                                 <p>
-                                   Healthcare providers may perform IV therapy to combat excessive blood or fluid loss, administer pain medication, or a plethora of other reasons. .
+                                    Healthcare providers may perform IV therapy to combat excessive blood or fluid loss,
+                                    administer pain medication, or a plethora of other reasons. .
                                 </p>
                             </div>
                             <a href="#" class="blog_btn">Learn More <span class="ml-2 ti-arrow-right"></span></a>

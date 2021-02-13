@@ -116,6 +116,16 @@
                         </div>
 
                         <div class="form-group row">
+                            {!! Form::label('sub_slogan', 'Sub Slogan', ['class' => 'col-sm-2 col-form-label'], false) !!}
+                            <div class="col-sm-10">
+                                {!! Form::text('sub_slogan', null, [
+                                'class' => "form-control
+                                {{ $errors->has('sub_slogan') ? 'is-invalid' : '' }}",
+                                ]) !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             {!! Form::label('logo', 'Company Logo', ['class' => 'col-sm-2 col-form-label'], false) !!}
                             <div class="col-sm-10">
                                 {!! Form::file('logo', null, [
@@ -155,21 +165,42 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
-                            {!! Form::label('about_us_image', 'About Us: Image (700kb)', ['class' => 'col-sm-2
-                            col-form-label'], false) !!}
+                        {{-- <div class="form-group row">
+                            {!!  Form::label(
+                                'about_us_image',
+                                'About Us: Image (700kb)',
+                                [
+                                    'class' => 'col-sm-2
+                            col-form-label',
+                                ],
+                                false,
+                            ) !!}
                             <div class="col-sm-10">
-                                {!! Form::file('about_us_image', null, [
-                                'class' => "custom-file-input
+                                {!!  Form::file('about_us_image', null, [
+                                    'class' => "custom-file-input
                                 {{ $errors->has('about_us_image') ? 'is-invalid' : '' }}",
                                 ]) !!}
                             </div>
-                        </div>
+                        </div> --}}
 
-
-
+                        {{-- <div class="form-group row">
+                            {!!  Form::label(
+                                'landing_page_background',
+                                'Landing Page Background (700kb)',
+                                [
+                                    'class' => 'col-sm-2
+                            col-form-label',
+                                ],
+                                false,
+                            ) !!}
+                            <div class="col-sm-10">
+                                {!!  Form::file('landing_page_background', null, [
+                                    'class' => "custom-file-input
+                                {{ $errors->has('landing_page_background') ? 'is-invalid' : '' }}",
+                                ]) !!}
+                            </div>
+                        </div> --}}
                     </div>
-
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>

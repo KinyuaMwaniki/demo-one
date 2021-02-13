@@ -2,10 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', 'LandingPageController@index')->name('landing');
-Route::get('/', function() {
-    return view('welcome');
-});
+Route::get('/', 'LandingPageController@index')->name('landing');
 
 Auth::routes(['register' => false]);
 

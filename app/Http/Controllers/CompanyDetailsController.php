@@ -94,6 +94,8 @@ class CompanyDetailsController extends Controller
             'facebook' => $request->facebook,
             'twitter' => $request->twitter,
             'instagram' => $request->instagram,
+            'slogan' => $request->slogan,
+            'sub_slogan' => $request->sub_slogan,
             'about_us_heading' => $request->about_us_heading,
             'about_us_description' => $request->about_us_description,
         ]);
@@ -109,7 +111,7 @@ class CompanyDetailsController extends Controller
             $company_detail->save();
         }
 
-       if($request->hasFile('about_us_image'))
+        if($request->hasFile('about_us_image'))
         {
             $fileNameWithExt = $request->file('about_us_image')->getClientOriginalName();
             $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
@@ -117,6 +119,17 @@ class CompanyDetailsController extends Controller
             $fileNameToStore = $fileName.'_'.time().'.'.$extension;
             $path = $request->file('about_us_image')->storeAs('public/about', $fileNameToStore);
             $company_detail->about_us_image = $fileNameToStore;
+            $company_detail->save();
+        }
+
+        if($request->hasFile('landing_page_background'))
+        {
+            $fileNameWithExt = $request->file('landing_page_background')->getClientOriginalName();
+            $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('landing_page_background')->getClientOriginalExtension();
+            $fileNameToStore = $fileName.'_'.time().'.'.$extension;
+            $path = $request->file('landing_page_background')->storeAs('public/about', $fileNameToStore);
+            $company_detail->landing_page_background = $fileNameToStore;
             $company_detail->save();
         }
 
