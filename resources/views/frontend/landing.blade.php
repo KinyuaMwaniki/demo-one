@@ -43,8 +43,9 @@
         <div class="main_menu">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light w-100">
-                    <a class="navbar-brand logo_h" href="{!! route('landing') !!}">
-                        <img src="/storage/logo/{{ $company_detail->logo }}" class="img-fluid" style="height: 50px" alt="" />
+                    <a class="navbar-brand logo_h" href="{!!  route('landing') !!}">
+                        <img src="/storage/logo/{{ $company_detail->logo }}" class="img-fluid" style="height: 50px"
+                            alt="" />
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -125,10 +126,10 @@
                         <p class="sub text-uppercase">{{ $company_detail->company_name }}</p>
                         <h3>
                             @php $count = 0 @endphp
-                            @foreach( explode(' ', $company_detail->slogan) as $word)
-                                {!! strlen($word) > 4 ? "<span>".$word."</span>" : $word !!}
+                            @foreach (explode(' ', $company_detail->slogan) as $word)
+                                {!! strlen($word) > 4 ? '<span>' . $word . '</span>' : $word !!}
                                 @php $count++ @endphp
-                                @if($count % 3 === 0)
+                                @if ($count % 3 === 0)
                                     <br />
                                 @endif
                             @endforeach
@@ -145,35 +146,17 @@
     <section class="feature-area section_gap_bottom_custom">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-feature">
-                        <a href="#" class="title">
-                            <i class="fas fa-user"></i>
-                            <h3>Free Delivery</h3>
-                        </a>
-                        <p>We deliver without charge within Nairobi</p>
+                @foreach ($promises as $promise)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-feature">
+                            <a href="#" class="title">
+                                <i class="fas fa-user"></i>
+                                <h3>{{ $promise->header }}</h3>
+                            </a>
+                            <p>{{ $promise->description }}</p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-feature">
-                        <a href="#" class="title">
-                            <i class="fas fa-user"></i>
-                            <h3>Superb Customer Care</h3>
-                        </a>
-                        <p>We offer quick feedback and care to our clients</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-feature">
-                        <a href="#" class="title">
-                            <i class="fas fa-user"></i>
-                            <h3>Credit</h3>
-                        </a>
-                        <p>We offer credit terms to our trusted customers</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

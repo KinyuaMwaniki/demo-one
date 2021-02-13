@@ -10,7 +10,8 @@
                   </a>
               </li>
 
-              <li class="{{ Request::is('company') || Request::is('portfolios*') || Request::is('services*') ? 'nav-item has-treeview menu-open' : 'nav-item has-treeview' }} ">
+              <li
+                  class="{{ Request::is('company') || Request::is('portfolios*') || Request::is('services*') ? 'nav-item has-treeview menu-open' : 'nav-item has-treeview' }} ">
                   <a href="#"
                       class="{{ Request::is('company') || Request::is('portfolios*') || Request::is('services*') ? 'nav-link active' : 'nav-link' }} ">
                       <i class="fas fa-cogs"></i>
@@ -25,6 +26,14 @@
                               class="{{ Request::is('company') ? 'nav-link active' : 'nav-link' }}">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Business Details</p>
+                          </a>
+                      </li>
+
+                      <li class="nav-item">
+                          <a href="{!!  route('promises.index') !!}"
+                              class="{{ Request::is('promises') ? 'nav-link active' : 'nav-link' }}">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>Business Promises</p>
                           </a>
                       </li>
 
