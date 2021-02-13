@@ -214,74 +214,31 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="main_title">
-                        <h2><span></span></h2>
-                        <p>Bring called seed first of third give itself now ment</p>
+                        <h2><span>Blog</span></h2>
+                        <p>Our Latest Posts</p>
                     </div>
                 </div>
             </div>
 
             <div class="row">
+                @foreach($blogs as $blog)
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog">
                         <div class="thumb">
-                            <img class="img-fluid" src="img/different-types-of-patient-monitoring-devices.jpg" alt="">
+                            <img class="img-fluid" src="/storage/blog/{{ $blog->image }}" alt="" style="height: 260px">
                         </div>
                         <div class="short_details">
                             <a class="d-block" href="single-blog.html">
-                                <h4>Different Types Of Patient Monitoring Devices
-                                </h4>
+                                <h4>{{ $blog->title }}</h4>
                             </a>
                             <div class="text-wrap">
-                                <p>
-                                    When a patient is coping with a severe injury or illness, things can take a turn for
-                                    the worse very quickly.
-                                </p>
+                                {!! \Illuminate\Support\Str::limit(strip_tags($blog->body), 150, $end='...') !!}
                             </div>
-                            <a href="#" class="blog_btn">Learn More <span class="ml-2 ti-arrow-right"></span></a>
+                            <a href="#" class="blog_btn">Learn More</a>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog">
-                        <div class="thumb">
-                            <img class="img-fluid" src="img/the-importance-of-priming-your-iv-tubing.jpg" alt="">
-                        </div>
-                        <div class="short_details">
-                            <a class="d-block" href="single-blog.html">
-                                <h4>What Are the Types of Medical Ventilators and How Do They Work?</h4>
-                            </a>
-                            <div class="text-wrap">
-                                <p>
-                                    The topic of medical ventilators is one that has gained more attention and curiosity
-                                    over the past year due to COVID-19. .
-                                </p>
-                            </div>
-                            <a href="#" class="blog_btn">Learn More <span class="ml-2 ti-arrow-right"></span></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog">
-                        <div class="thumb">
-                            <img style="height: 225px" class="img-fluid"
-                                src="img/what-are-the-types-of-medical-ventilators-and-how-do-they-work.jpg" alt="">
-                        </div>
-                        <div class="short_details">
-                            <a class="d-block" href="single-blog.html">
-                                <h4>The Importance of Priming Your IV Tubing</h4>
-                            </a>
-                            <div class="text-wrap">
-                                <p>
-                                    Healthcare providers may perform IV therapy to combat excessive blood or fluid loss,
-                                    administer pain medication, or a plethora of other reasons. .
-                                </p>
-                            </div>
-                            <a href="#" class="blog_btn">Learn More <span class="ml-2 ti-arrow-right"></span></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

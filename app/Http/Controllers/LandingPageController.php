@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
 use App\Service;
 use App\Portfolio;
 use App\CompanyDetail;
@@ -16,6 +17,7 @@ class LandingPageController extends Controller
         $portfolios = Portfolio::all();
         $services = Service::all();
         $promises = BusinessPromise::all();
-        return view('frontend.landing', compact(['company_detail', 'portfolios', 'services', 'promises']));
+        $blogs = Blog::all();
+        return view('frontend.landing', compact(['company_detail', 'portfolios', 'services', 'promises', 'blogs']));
     }
 }
