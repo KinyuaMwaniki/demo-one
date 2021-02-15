@@ -2063,9 +2063,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      selected: null
+    };
+  },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    console.log("Component mounted.");
+  },
+  methods: {
+    doThis: function doThis() {
+      console.log("Here");
+      console.log(this.selected);
+    }
   }
 });
 
@@ -2149,26 +2167,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["allProducts"],
+  props: ["allProducts", "types"],
   data: function data() {
     return {
-      products: []
+      products: [],
+      productType: "all"
     };
   },
   computed: {
@@ -2176,10 +2180,27 @@ __webpack_require__.r(__webpack_exports__);
       return "/storage/portfolios/" + this.al;
     }
   },
+  watch: {
+    productType: function productType() {
+      var _this = this;
+
+      if (this.productType === "all") {
+        this.products = this.allProducts;
+        return;
+      }
+
+      this.products = this.allProducts.filter(function (prod) {
+        return prod.type.name == _this.productType;
+      });
+    }
+  },
   mounted: function mounted() {
     this.products = this.allProducts;
   },
   methods: {
+    getLink: function getLink(product) {
+      return "/products-list/" + product.id;
+    },
     getPic: function getPic(product) {
       return "/storage/portfolios/" + product.image;
     }
@@ -37976,32 +37997,67 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("Example Component")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _vm._v("\n          I'm an example component.\n          "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.selected,
+                    expression: "selected"
+                  }
+                ],
+                on: {
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.selected = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    _vm.doThis
+                  ]
+                }
+              },
+              [
+                _c("option", { attrs: { disabled: "", value: "" } }, [
+                  _vm._v("Please select one")
+                ]),
+                _vm._v(" "),
+                _c("option", [_vm._v("A")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("B")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("C")])
+              ]
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
+            _c("span", [_vm._v("Selected: " + _vm._s(_vm.selected))])
           ])
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -38023,49 +38079,106 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "cat_product_area section_gap" }, [
-    _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row flex-row-reverse" }, [
-        _c("div", { staticClass: "col-lg-12" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "latest_product_inner" }, [
-            _c(
-              "div",
-              { staticClass: "row" },
-              _vm._l(_vm.products, function(product) {
-                return _c(
-                  "div",
-                  { key: product.id, staticClass: "col-lg-4 col-md-6" },
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("section", { staticClass: "cat_product_area section_gap" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row flex-row-reverse" }, [
+          _c("div", { staticClass: "col-lg-12" }, [
+            _c("div", { staticClass: "product_top_bar" }, [
+              _c("div", { staticClass: "left_dorp" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.productType,
+                        expression: "productType"
+                      }
+                    ],
+                    staticClass: "sorting",
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.productType = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      }
+                    }
+                  },
                   [
-                    _c("div", { staticClass: "single-product" }, [
-                      _c("div", { staticClass: "product-img" }, [
-                        _c("img", {
-                          staticClass: "img-fluid card-img",
-                          staticStyle: { height: "260px" },
-                          attrs: { src: _vm.getPic(product), alt: "" }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "product-btm" }, [
-                        _c(
-                          "a",
-                          { staticClass: "d-block", attrs: { href: "#" } },
-                          [_c("h4", [_vm._v(_vm._s(product.header))])]
-                        ),
+                    _c("option", { attrs: { value: "all" } }, [_vm._v("All")]),
+                    _vm._v(" "),
+                    _vm._l(_vm.types, function(type) {
+                      return _c(
+                        "option",
+                        { key: type.name, domProps: { value: type.name } },
+                        [
+                          _vm._v(
+                            "\n                  " +
+                              _vm._s(type.name) +
+                              "\n                "
+                          )
+                        ]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "latest_product_inner" }, [
+              _c(
+                "div",
+                { staticClass: "row" },
+                _vm._l(_vm.products, function(product) {
+                  return _c(
+                    "div",
+                    { key: product.id, staticClass: "col-lg-4 col-md-6" },
+                    [
+                      _c("div", { staticClass: "single-product" }, [
+                        _c("div", { staticClass: "product-img" }, [
+                          _c("img", {
+                            staticClass: "img-fluid card-img",
+                            staticStyle: { height: "260px" },
+                            attrs: { src: _vm.getPic(product), alt: "" }
+                          })
+                        ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "mt-3" }, [
-                          _c("span", { staticClass: "mr-4" }, [
-                            _vm._v("KES " + _vm._s(product.price))
+                        _c("div", { staticClass: "product-btm" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "d-block",
+                              attrs: { href: _vm.getLink(product) }
+                            },
+                            [_c("h4", [_vm._v(_vm._s(product.header))])]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "mt-3" }, [
+                            _c("span", { staticClass: "mr-4" }, [
+                              _vm._v("KES " + _vm._s(product.price))
+                            ])
                           ])
                         ])
                       ])
-                    ])
-                  ]
-                )
-              }),
-              0
-            )
+                    ]
+                  )
+                }),
+                0
+              )
+            ])
           ])
         ])
       ])
@@ -38077,18 +38190,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "product_top_bar" }, [
-      _c("div", { staticClass: "left_dorp" }, [
-        _c("select", { staticClass: "sorting" }, [
-          _c("option", { attrs: { value: "1" } }, [_vm._v("Default sorting")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "2" } }, [
-            _vm._v("Default sorting 01")
-          ]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "4" } }, [
-            _vm._v("Default sorting 02")
-          ])
+    return _c("section", { staticClass: "banner_area" }, [
+      _c("div", { staticClass: "banner_inner d-flex align-items-center" }, [
+        _c("div", { staticClass: "container" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "banner_content d-md-flex justify-content-between align-items-center"
+            },
+            [
+              _c("div", { staticClass: "mb-3 mb-md-0" }, [
+                _c("h2", [_vm._v("Products")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v("Browse through our wide range of quality products")
+                ])
+              ])
+            ]
+          )
         ])
       ])
     ])

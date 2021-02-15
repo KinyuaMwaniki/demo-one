@@ -10,6 +10,5 @@
     <script src="{{ asset('vendors/jquery-ui/jquery-ui.js') }}"></script>
     <script src="{{ asset('vendors/counter-up/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('vendors/counter-up/jquery.counterup.js') }}"></script>
-    <script src="{{ asset('js/theme.js') }}"></script>
     <script src="https://kit.fontawesome.com/c4f6ccb2bc.js" crossorigin="anonymous"></script>
 

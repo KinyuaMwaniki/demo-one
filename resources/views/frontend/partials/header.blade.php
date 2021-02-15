@@ -27,31 +27,13 @@
                 </button>
                 <div class="collapse navbar-collapse offset w-100" id="navbarSupportedContent">
                     <div class="row w-100 mr-0">
-                        <div class="col-lg-7 pr-0">
+                        <div class="col-lg-8 pr-0">
                             <ul class="nav navbar-nav center_nav pull-right">
                                 <li class="{{ Request::is('/') ? 'nav-item active' : 'nav-item' }}">
                                     <a class="nav-link" href="{!! route('landing') !!}">Home</a>
                                 </li>
                                 <li class="{{ Request::is('products-list') ? 'nav-item active' : 'nav-item' }}">
                                     <a class="nav-link" href="{!! route('products.index') !!}">Our Products</a>
-                                </li>
-                                <li class="nav-item submenu dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                                        aria-haspopup="true" aria-expanded="false">Products</a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="category.html">Shop Category</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="single-product.html">Product Details</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="checkout.html">Product Checkout</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="cart.html">Shopping Cart</a>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li class="nav-item submenu dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Portfolio;
+use App\ProductType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\CreatePortfolioRequest;
@@ -17,7 +18,7 @@ class PortfoliosController extends Controller
      */
     public function index()
     {
-        $portfolios = Portfolio::all();
+        $portfolios = Portfolio::with('type')->get();
         return view('portfolios.index', compact('portfolios'));
     }
 
@@ -28,7 +29,8 @@ class PortfoliosController extends Controller
      */
     public function create()
     {
-        return view('portfolios.create');
+        $types = ProductType::pluck('name', 'id');
+        return view('portfolios.create', compact('types'));
     }
 
     /**
@@ -76,13 +78,14 @@ class PortfoliosController extends Controller
     public function edit($id)
     {
         $portfolio = Portfolio::find($id);
+        $types = ProductType::pluck('name', 'id');
         
         if (empty($portfolio)) {
             Session::flash('message', "Portfolio Not Found");
             return redirect(route('portfolios.index'));
         }
 
-        return view('portfolios.edit', compact('portfolio'));
+        return view('portfolios.edit', compact(['portfolio', 'types']));
     }
 
     /**

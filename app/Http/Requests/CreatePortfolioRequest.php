@@ -26,6 +26,7 @@ class CreatePortfolioRequest extends FormRequest
         return [
             'header' => 'bail|required',
             'subheader' => 'bail|required',
+            'type_id' => 'bail|required',
             'image' => 'bail|image|required',
         ];
     }

@@ -5,17 +5,11 @@
 
 <body>
     <div id="main">
-
         @include('frontend.partials.header')
-    
-        <!--================Category Product Area =================-->
-    
         <products-component
-            :all-products="{{ json_encode($portfolios) }}">
+            :all-products="{{ json_encode($portfolios) }}"
+            :types="{{ json_encode($types) }}">
         </products-component>
-        
-        <!--================End Category Product Area =================-->
-    
     </div>
         @include('frontend.partials.footer')
         @include('frontend.partials.scripts')

@@ -714,8 +714,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div>
       </div>
     </footer>
-    <!--================ End footer Area  =================-->
-
     
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/stellar.js') }}"></script>

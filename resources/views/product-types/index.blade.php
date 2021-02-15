@@ -3,12 +3,12 @@
 @section('header')
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Company Products</h1>
+            <h1 class="m-0 text-dark">Product Types</h1>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Our Products</li>
+                <li class="breadcrumb-item active">Product Types</li>
             </ol>
         </div>
     </div>
@@ -22,7 +22,7 @@
                     <div class="card-header">
 
                         <div class="text-right">
-                            <a href="{!!  route('portfolios.create') !!}" class="btn btn-info" type="button">New</a>
+                            <a href="{!!  route('product-types.create') !!}" class="btn btn-info" type="button">New</a>
                         </div>
 
                     </div>
@@ -31,37 +31,23 @@
                             <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Price</th>
-                                    <th>Product Type</th>
-                                    <th>Image</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($portfolios as $portfolio)
+                                @foreach ($types as $type)
                                     <tr>
-                                        <td>{{ $portfolio->header }}</td>
+                                        <td>{{ $type->name }}</td>
                                         <td>
-                                            {{ $portfolio->subheader }}
-                                        </td>
-                                        <td>
-                                            KES {{ $portfolio->price }}
-                                        </td>
-                                        <td>{{ $portfolio->type->name }}</td>
-                                        <td>
-                                            <img src="/storage/portfolios/{{ $portfolio->image }}" alt="Logo" style="height: 80px; width: 80px">
-                                        </td>
-                                        <td>
-                                            {!! Form::open(['route' => ['portfolios.destroy', $portfolio->id], 'method' => 'delete']) !!}
+                                            {!! Form::open(['route' => ['product-types.destroy', $type->id], 'method' => 'delete']) !!}
                                             <div class='btn-group'>
-                                                <a href="{{ route('portfolios.edit', $portfolio->id) }}" class='btn btn-info btn-xs mr-2'>
+                                                <a href="{{ route('product-types.edit', $type->id) }}" class='btn btn-info btn-xs mr-2'>
                                                     <i class="fa fa-pen"></i>
                                                 </a>
                                                 {!! Form::button('<i class="fa fa-trash" aria-hidden="true"></i>', [
                                                 'type' => 'submit',
                                                 'class' => 'btn btn-info btn-xs',
-                                                'onclick' => "return confirm('Are you sure?')",
+                                                'onclick' => "return confirm('Are you sure? This will also delete products associated with this type.')",
                                                 ]) !!}
                                             </div>
                                             {!! Form::close() !!} 
