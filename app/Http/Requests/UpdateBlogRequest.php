@@ -26,7 +26,6 @@ class UpdateBlogRequest extends FormRequest
         return [
             'title' => 'bail|required',
             'body' => 'bail|required',
-            'image' => 'bail|image|required',
         ];
     }
 }

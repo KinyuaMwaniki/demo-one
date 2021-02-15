@@ -1,59 +1,122 @@
 <template>
-  <div class="col-lg-12">
-    <form @submit.prevent="submitForm" class="php-email-form">
-      <div class="form-row">
-        <div class="col form-group">
-          <input
-            type="text"
-            name="name"
-            class="form-control"
-            id="name"
-            placeholder="Your Name"
-            v-model="form.name"
-          />
-        </div>
-        <div class="col form-group">
-          <input
-            type="email"
-            class="form-control"
-            name="email"
-            id="email"
-            placeholder="Your Email"
-            v-model="form.email"
-          />
-          <div class="validate"></div>
-        </div>
-      </div>
-      <div class="form-group">
+  <!-- <div class="col-lg-12">
+  <form @submit.prevent="submitForm" class="php-email-form">
+    <div class="form-row">
+      <div class="col form-group">
         <input
           type="text"
+          name="name"
           class="form-control"
-          name="subject"
-          id="subject"
-          placeholder="Subject"
-          v-model="form.subject"
+          id="name"
+          placeholder="Your Name"
+          v-model="form.name"
+        />
+      </div>
+      <div class="col form-group">
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          id="email"
+          placeholder="Your Email"
+          v-model="form.email"
         />
         <div class="validate"></div>
       </div>
-      <div class="form-group">
-        <textarea
-          class="form-control"
-          name="message"
-          rows="5"
-          data-rule="required"
-          v-model="form.message"
-        ></textarea>
-        <div class="validate"></div>
+    </div>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        name="subject"
+        id="subject"
+        placeholder="Subject"
+        v-model="form.subject"
+      />
+      <div class="validate"></div>
+    </div>
+    <div class="form-group">
+      <textarea
+        class="form-control"
+        name="message"
+        rows="5"
+        data-rule="required"
+        v-model="form.message"
+      ></textarea>
+      <div class="validate"></div>
+    </div>
+    <div class="mb-3">
+      <div class="alert alert-info" v-if="success">
+        Messages sent, thanks for contacting us. We will be in touch soon.
       </div>
-      <div class="mb-3">
-        <div class="alert alert-info" v-if="success">
-          Messages sent, thanks for contacting us. We will be in touch soon.
+      <div class="alert alert-danger" v-if="error">
+        Please fill all fields.
+      </div>
+    </div>
+    <div class="text-center"><button type="submit">Send Message</button></div>
+  </form>
+</div> -->
+
+  <div>
+    <form
+      class="form-contact contact_form"
+      @submit.prevent="submitForm"
+      id="contactForm"
+    >
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <textarea
+              class="form-control w-100"
+              name="message"
+              id="message"
+              cols="30"
+              rows="9"
+              placeholder="Enter Message"
+              v-model="form.message"
+            ></textarea>
+          </div>
         </div>
-        <div class="alert alert-danger" v-if="error">
-          Please fill all fields.
+        <div class="col-sm-6">
+          <div class="form-group">
+            <input
+              class="form-control"
+              name="name"
+              id="name"
+              type="text"
+              placeholder="Enter your name"
+              v-model="form.name"
+            />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <input
+              class="form-control"
+              name="email"
+              id="email"
+              type="email"
+              placeholder="Enter email address"
+              v-model="form.email"
+            />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <input
+              class="form-control"
+              name="subject"
+              id="subject"
+              type="text"
+              placeholder="Enter Subject"
+              v-model="form.subject"
+            />
+          </div>
         </div>
       </div>
-      <div class="text-center"><button type="submit">Send Message</button></div>
+      <div class="form-group mt-lg-3">
+        <button type="submit" class="main_btn">Send Message</button>
+      </div>
     </form>
   </div>
 </template>
@@ -68,8 +131,6 @@ export default {
         subject: "",
         message: "",
       },
-      error: false,
-      success: false,
     };
   },
   methods: {
@@ -78,7 +139,7 @@ export default {
       this.success = false;
 
       if (!this.validateForm()) {
-        this.error = true;
+        this.$toaster.error('Please make sure all fields are filled.')
         return;
       }
 
@@ -87,14 +148,10 @@ export default {
       let submit_data = this.form;
       let that = this;
 
-      console.log("Before Axios");
-
       axios({ method: submit_method, url: uri, data: submit_data })
         .then((response) => {
           if (response.data.success == true) {
-            this.selected_student = "";
-            this.selected_books = [];
-            this.success = true;
+            this.$toaster.success('Thanks for contacting us, we will be in touch soon')
             this.form.name = "";
             this.form.email = "";
             this.form.subject = "";

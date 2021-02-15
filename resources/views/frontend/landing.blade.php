@@ -4,8 +4,8 @@
 @include('frontend.partials.head')
 
 <body>
-    @include('frontend.partials.header') 
-    
+    @include('frontend.partials.header')
+
     <section class="home_banner_area mb-40">
         <div class="banner_inner d-flex align-items-center">
             <div class="container">
@@ -58,34 +58,34 @@
             </div>
 
             <div class="row">
-                @foreach($portfolios as $portfolio)
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-product">
-                        <div class="product-img">
-                            <img style="height: 260px" class="img-fluid w-100"
-                                src="/storage/portfolios/{{ $portfolio->image }}" alt="" />
-                            <div class="p_icon">
-                                <a href="#">
-                                    <i class="ti-eye"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="ti-heart"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="ti-shopping-cart"></i>
-                                </a>
+                @foreach ($portfolios as $portfolio)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-product">
+                            <div class="product-img">
+                                <img style="height: 260px" class="img-fluid w-100"
+                                    src="/storage/portfolios/{{ $portfolio->image }}" alt="" />
+                                <div class="p_icon">
+                                    <a href="#">
+                                        <i class="ti-eye"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="ti-heart"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="ti-shopping-cart"></i>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="product-btm">
-                            <a href="#" class="d-block">
-                                <h4>{{ $portfolio->header }}</h4>
-                            </a>
-                            <div class="mt-3">
-                                <span class="mr-4">KES {{ $portfolio->price }}</span>
+                            <div class="product-btm">
+                                <a href="#" class="d-block">
+                                    <h4>{{ $portfolio->header }}</h4>
+                                </a>
+                                <div class="mt-3">
+                                    <span class="mr-4">KES {{ $portfolio->price }}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>
@@ -103,29 +103,30 @@
             </div>
 
             <div class="row">
-                @foreach($blogs as $blog)
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog">
-                        <div class="thumb">
-                            <img class="img-fluid" src="/storage/blog/{{ $blog->image }}" alt="" style="height: 260px">
-                        </div>
-                        <div class="short_details">
-                            <a class="d-block" href="single-blog.html">
-                                <h4>{{ $blog->title }}</h4>
-                            </a>
-                            <div class="text-wrap">
-                                {!! \Illuminate\Support\Str::limit(strip_tags($blog->body), 150, $end='...') !!}
+                @foreach ($blogs as $blog)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-blog">
+                            <div class="thumb">
+                                <img class="img-fluid" src="/storage/blog/{{ $blog->image }}" alt=""
+                                    style="height: 260px">
                             </div>
-                            <a href="#" class="blog_btn">Learn More</a>
+                            <div class="short_details">
+                                <a class="d-block" href="{{ route('blogs-front.show', $blog->id) }}">
+                                    <h4>{{ $blog->title }}</h4>
+                                </a>
+                                <div class="text-wrap">
+                                    {!! \Illuminate\Support\Str::limit(strip_tags($blog->body), 150, $end = '...') !!}
+                                </div>
+                                <a href="{{ route('blogs-front.show', $blog->id) }}" class="blog_btn">Learn More</a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>
     </section>
 
-    @include('frontend.partials.footer') 
+    @include('frontend.partials.footer')
     @include('frontend.partials.scripts')
 </body>
 
