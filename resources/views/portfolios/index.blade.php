@@ -34,6 +34,7 @@
                                     <th>Description</th>
                                     <th>Price</th>
                                     <th>Product Type</th>
+                                    <th>Appear on Front Page</th>
                                     <th>Image</th>
                                     <th></th>
                                 </tr>
@@ -49,6 +50,7 @@
                                             KES {{ $portfolio->price }}
                                         </td>
                                         <td>{{ $portfolio->type->name }}</td>
+                                        <td>{{ $portfolio->featured ? 'Yes' : 'No' }}</td>
                                         <td>
                                             <img src="/storage/portfolios/{{ $portfolio->image }}" alt="Logo" style="height: 80px; width: 80px">
                                         </td>

@@ -28,7 +28,7 @@
                 <div class="collapse navbar-collapse offset w-100" id="navbarSupportedContent">
                     <div class="row w-100 mr-0">
                         <div class="col-lg-8 pr-0">
-                            <ul class="nav navbar-nav center_nav pull-right">
+                            <ul class="nav navbar-nav center_nav pull-right pull-right-sifa">
                                 <li class="{{ Request::is('/') ? 'nav-item active' : 'nav-item' }}">
                                     <a class="nav-link" href="{!!  route('landing') !!}">Home</a>
                                 </li>

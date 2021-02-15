@@ -14,7 +14,7 @@ class LandingPageController extends Controller
     public function index()
     {
         $company_detail = CompanyDetail::all()->first();
-        $portfolios = Portfolio::all();
+        $portfolios = Portfolio::where('featured', 1)->get();
         $services = Service::all();
         $promises = BusinessPromise::all();
         $blogs = Blog::all();
