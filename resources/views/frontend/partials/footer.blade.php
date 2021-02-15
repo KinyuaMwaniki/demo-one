@@ -12,9 +12,9 @@
             <div class="col-lg-5 col-md-5 single-footer-widget">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="{!!  route('products.index') !!}">Products</a></li>
-                    <li><a href="{!!  route('contacts.index') !!}">Contact Us</a></li>
-                    <li><a href="{!!  route('login') !!}">Staff Login</a></li>
+                    <li><a href="{!!  route('products.index') !!} " target="_blank">Products</a></li>
+                    <li><a href="{!!  route('contacts.index') !!}" target="_blank">Contact Us</a></li>
+                    <li><a href="{!!  route('login') !!}" target="_blank">Staff Login</a></li>
                 </ul>
             </div>
         </div>
