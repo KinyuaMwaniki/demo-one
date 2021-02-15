@@ -38,6 +38,14 @@
                       </li>
 
                       <li class="nav-item">
+                          <a href="{!!  route('product-types.index') !!}"
+                              class="{{ Request::is('product-types*') ? 'nav-link active' : 'nav-link' }}">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>Product Types</p>
+                          </a>
+                      </li>
+
+                      <li class="nav-item">
                           <a href="{!!  route('portfolios.index') !!}"
                               class="{{ Request::is('portfolios*') ? 'nav-link active' : 'nav-link' }}">
                               <i class="far fa-circle nav-icon"></i>
