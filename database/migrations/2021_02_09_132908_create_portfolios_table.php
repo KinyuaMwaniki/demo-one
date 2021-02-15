@@ -26,6 +26,7 @@ class CreatePortfoliosTable extends Migration
             $table->string('image');
             $table->unsignedBigInteger('type_id')->index();
             $table->double('price');
+            $table->boolean('featured')->default(false);
             $table->timestamps();
      
      

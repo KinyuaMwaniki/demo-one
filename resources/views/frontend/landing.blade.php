@@ -64,17 +64,6 @@
                             <div class="product-img">
                                 <img style="height: 260px" class="img-fluid w-100"
                                     src="/storage/portfolios/{{ $portfolio->image }}" alt="" />
-                                <div class="p_icon">
-                                    <a href="#">
-                                        <i class="ti-eye"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="ti-heart"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="ti-shopping-cart"></i>
-                                    </a>
-                                </div>
                             </div>
                             <div class="product-btm">
                                 <a href="#" class="d-block">
