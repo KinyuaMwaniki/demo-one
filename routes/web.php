@@ -6,6 +6,11 @@ Route::get('/', 'LandingPageController@index')->name('landing');
 Route::get('/products-list', 'ProductsController@index')->name('products.index');
 Route::get('/products-list/{id}', 'ProductsController@show')->name('products.show');
 
+Route::get('/blogs-front-list', 'BlogsFrontsController@index')->name('blogs-front.index');
+Route::get('/blogs-front-list/{id}', 'BlogsFrontsController@show')->name('blogs-front.show');
+
+Route::get('/contacts', 'ContactsController@index')->name('contacts.index');
+
 Auth::routes(['register' => false]);
 Route::get('/home', 'HomeController@index')->name('home');
 
