@@ -1,14 +1,20 @@
+    <script src="{{ asset('assets/js/vendor/modernizr-3.5.0.min.js') }}"></script>
+    <script src="{{ asset('assets/js/vendor/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.slicknav.min.js') }}"></script>
+    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/js/slick.min.js') }}"></script>
+    <script src="{{ asset('assets/js/wow.min.js') }}"></script>
+    <script src="{{ asset('assets/js/animated.headline.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.magnific-popup.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
+    <script src="{{ asset('assets/js/contact.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.form.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('assets/js/mail-script.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/stellar.js') }}"></script>
-    <script src="{{ asset('vendors/lightbox/simpleLightbox.min.js') }}"></script>
-    <script src="{{ asset('vendors/nice-select/js/jquery.nice-select.min.js') }}"></script>
-    <script src="{{ asset('vendors/isotope/imagesloaded.pkgd.min.js') }}"></script>
-    <script src="{{ asset('vendors/isotope/isotope-min.js') }}"></script>
-    <script src="{{ asset('vendors/owl-carousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.ajaxchimp.min.js') }}"></script>
-    <script src="{{ asset('js/mail-script.js') }}"></script>
-    <script src="{{ asset('vendors/jquery-ui/jquery-ui.js') }}"></script>
-    <script src="{{ asset('vendors/counter-up/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('vendors/counter-up/jquery.counterup.js') }}"></script>
-    <script src="https://kit.fontawesome.com/c4f6ccb2bc.js" crossorigin="anonymous"></script>
-

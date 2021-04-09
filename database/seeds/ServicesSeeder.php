@@ -13,20 +13,20 @@ class ServicesSeeder extends Seeder
     public function run()
     {
         $networking = Service::create([
-            'header' => 'Networking',
-            'description' => 'Our team of highly trained and motivated staff will install cutting edge networks to connect your business to the world',
+            'header' => 'Business card design',
+            'description' => 'We will design and print business cards for your staff.',
         ]);
         $server_maintenance = Service::create([
-                    'header' => 'Server Maintenace',
-                    'description' => 'We supply and install servers of all major brands including HP, Acer, and Dell',
+                    'header' => 'Bulk Printing',
+                    'description' => 'We privide bulk printing both in black and color',
                 ]);
         $pbx_installation = Service::create([
-                    'header' => 'Phones Installation',
-                    'description' => 'Rictech Supplies install and maintain modern pbx devices to improve connectivity within your company.',
+                    'header' => 'Business Branding',
+                    'description' => 'We guide you through branding your business for better exposure',
                 ]);
         $supplies = Service::create([
-                    'header' => 'Office Supplies',
-                    'description' => 'We supply quality office supplies including printer toners, printing papers, stationary, all at customer friendly prices',
+                    'header' => 'Web design',
+                    'description' => 'We build websites that match your business needs',
                 ]);
     }
 }
